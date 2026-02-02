@@ -10,7 +10,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductoDTO {
-    private Long id;
+    private String id;
     private String titulo;
     private String autor;
     private String tipo;  

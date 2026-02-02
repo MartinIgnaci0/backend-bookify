@@ -1,10 +1,6 @@
 package com.bookify.bookify.service;
 
 import com.bookify.bookify.dto.ProductoDTO;
-import com.bookify.bookify.model.Audiolibro;
-import com.bookify.bookify.model.Cd;
-import com.bookify.bookify.model.Ebook;
-import com.bookify.bookify.model.Libro;
 import com.bookify.bookify.repository.AudiolibroRepository;
 import com.bookify.bookify.repository.CdRepository;
 import com.bookify.bookify.repository.EbookRepository;
@@ -35,7 +31,7 @@ public class CatalogoService {
     public List<ProductoDTO> obtenerCatalogoCompleto() {
         List<ProductoDTO> catalogo = new ArrayList<>();
 
-        // Libros
+        // Libros - Prefijo L
         libroRepo.findAll().forEach(libro -> {
             Map<String, Object> detalles = new HashMap<>();
             detalles.put("paginas", libro.getPaginas());
@@ -43,7 +39,7 @@ public class CatalogoService {
             detalles.put("formato", libro.getFormato());
 
             catalogo.add(new ProductoDTO(
-                    libro.getId(),
+                    "L" + libro.getId(),
                     libro.getTitulo(),
                     libro.getAutor(),
                     "libro",
@@ -56,7 +52,7 @@ public class CatalogoService {
             ));
         });
 
-        // Ebooks
+        // Ebooks - Prefijo E
         ebookRepo.findAll().forEach(ebook -> {
             Map<String, Object> detalles = new HashMap<>();
             detalles.put("paginas", ebook.getPaginas());
@@ -64,7 +60,7 @@ public class CatalogoService {
             detalles.put("formatoArchivo", ebook.getFormatoArchivo());
 
             catalogo.add(new ProductoDTO(
-                    ebook.getId(),
+                    "E" + ebook.getId(),
                     ebook.getTitulo(),
                     ebook.getAutor(),
                     "ebook",
@@ -77,14 +73,14 @@ public class CatalogoService {
             ));
         });
 
-        // CDs
+        // CDs - Prefijo C
         cdRepo.findAll().forEach(cd -> {
             Map<String, Object> detalles = new HashMap<>();
             detalles.put("duracionMinutos", cd.getDuracionMinutos());
             detalles.put("formato", cd.getFormato());
 
             catalogo.add(new ProductoDTO(
-                    cd.getId(),
+                    "C" + cd.getId(),
                     cd.getTitulo(),
                     cd.getAutor(),
                     "cd",
@@ -97,14 +93,14 @@ public class CatalogoService {
             ));
         });
 
-        // Audiolibros
+        // Audiolibros - Prefijo A
         audiolibroRepo.findAll().forEach(audio -> {
             Map<String, Object> detalles = new HashMap<>();
             detalles.put("duracionMinutos", audio.getDuracionMinutos());
             detalles.put("pesoMb", audio.getPesoMb());
 
             catalogo.add(new ProductoDTO(
-                    audio.getId(),
+                    "A" + audio.getId(),
                     audio.getTitulo(),
                     audio.getAutor(),
                     "audiolibro",
