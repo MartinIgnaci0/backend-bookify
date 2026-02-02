@@ -49,7 +49,7 @@ public class CatalogoService {
                     "libro",
                     libro.getPrecio(),
                     libro.getStock(),
-                    null, // genero no está en tu modelo, déjalo null o agrégalo si quieres
+                    null,
                     libro.getImagenUrl(),
                     libro.getDescripcion(),
                     detalles
@@ -69,7 +69,7 @@ public class CatalogoService {
                     ebook.getAutor(),
                     "ebook",
                     ebook.getPrecio(),
-                    0,  // ebooks no tienen stock físico
+                    0,
                     null,
                     ebook.getImagenUrl(),
                     ebook.getDescripcion(),

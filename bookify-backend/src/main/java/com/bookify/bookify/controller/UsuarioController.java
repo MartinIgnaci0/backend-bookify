@@ -60,6 +60,7 @@ public class UsuarioController {
         if (usuarioOpt.isPresent()) {
             Usuario usuario = usuarioOpt.get();
             return ResponseEntity.ok(Map.of(
+                "id", usuario.getId(),
                 "ok", true,
                 "rol", usuario.getRol(),
                 "nombre", usuario.getNombre(),

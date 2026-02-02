@@ -16,7 +16,11 @@ public class Libro {
 
     private String titulo;
     private String autor;
+
+    @Lob 
+    @Column(columnDefinition = "TEXT")
     private String descripcion;
+    
     private int stock;
     private double precio;
     private int paginas;

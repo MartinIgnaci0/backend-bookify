@@ -17,7 +17,11 @@ public class Ebook {
     private String titulo;
     private String autor;
     private int paginas;
+
+    @Lob 
+    @Column(columnDefinition = "TEXT")
     private String descripcion;
+    
     private double precio;
     private double pesoMb;
     private String formatoArchivo; 

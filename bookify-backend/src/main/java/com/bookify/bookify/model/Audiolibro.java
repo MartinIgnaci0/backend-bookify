@@ -18,7 +18,11 @@ public class Audiolibro {
     private String autor;
     private int duracionMinutos;
     private double pesoMb;
+
+    @Lob 
+    @Column(columnDefinition = "TEXT")
     private String descripcion;
+    
     private double precio;
     private String imagenUrl;
 }
